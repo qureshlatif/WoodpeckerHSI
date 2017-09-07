@@ -3,6 +3,7 @@
 \alias{WoodpeckerHSI}
 \docType{package}
 \title{Woodpecker HSI functions}
+\version{1.01}
 \description{Functions and data for applying habitat suitability models for disturbance associated woodpeckers as described in various publications by Rocky Mountain Research Station scientists.}
 \author{Quresh Latif}
 \references{

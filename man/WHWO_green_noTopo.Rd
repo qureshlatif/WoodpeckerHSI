@@ -18,7 +18,7 @@ WHWO_green_noTopo(LOCCC, LANDCC, PIPO)
 \value{
   \item{exponent}{This value is a linear function of inputs subsequently re-scaled to get various other outputs.}
   \item{hsi}{Maxent output rescaled to range 0-1 using a logit transformation. This is the output evaluated by Latif et al. (2015) and provided by ArcGIS application tools to inform forest planning.}
-  \item{hsi}{Raw Maxent output recommended by Merow et al. (2013) and most closely related to local abundance or density.}
+  \item{mx.raw}{Raw Maxent output recommended by Merow et al. (2013) and most closely related to local abundance or density.}
 }
 \references{
 Latif, Q. S., V. A. Saab, K. Mellen-Mclean, and J. G. Dudley. 2015. Evaluating habitat suitability models for nesting white-headed woodpeckers in unburned forest. The Journal of Wildlife Management 79:263-273.
