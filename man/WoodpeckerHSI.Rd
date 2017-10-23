@@ -3,8 +3,12 @@
 \alias{WoodpeckerHSI}
 \docType{package}
 \title{Woodpecker HSI functions}
-\version{1.01}
+\version{1.02}
 \description{Functions and data for applying habitat suitability models for disturbance associated woodpeckers as described in various publications by Rocky Mountain Research Station scientists.}
+\imports{ggplot2,
+cowplot,
+dplyr,
+stringr}
 \author{Quresh Latif}
 \references{
 Hollenbeck, J. P., V. A. Saab, and R. W. Frenzel. 2011. Habitat suitability and nest survival of White-headed Woodpeckers in unburned forests of Oregon. Journal of Wildlife Management 75:1061-1071.
