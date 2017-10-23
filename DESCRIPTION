@@ -6,5 +6,5 @@ Date: 2017-09-07
 Author: Quresh S. Latif
 Maintainer: Quresh Latif <qureshlatif@yahoo.com>
 Description: Contains datasets and functions for developing, applying, and evaluating habitat suitability models following methods used for disturbance-associated woodpeckers.
-Suggests: PresenceAbsence
+Imports: PresenceAbsence, cowplot, ggplot2, dplyr, stringr
 License: GPL-3
