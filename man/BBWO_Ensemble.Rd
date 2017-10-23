@@ -17,7 +17,7 @@ BBWO_Ensemble(Data, mods = c("BC1", "TBC1", "TB1", "SG_wlr", "TP_wlr", "TB_wlr",
 }
 \details{This the final wrapper function that classifies 8 component model HSIs and combines classified values into an ensemble prediction of habitat suitability for nesting Black-backed Woodpeckers (Latif et al. 2013). Ensemble predictions describe the number of models classifying a given observation or pixel as suitable. The 'Data' argument should contain all continuous HSIs from individual models, and will most likely be the output from the 'BBWO_IndivModelHSIs' function.}
 \value{
-  \item{tab}{Matrix of classified HSIs (8 binary columns) and the final ensemble prediction (1 integer column with range 0-8). Columns are labeled 'BC1', 'TBC1', 'TB1', 'SG_wlr', 'TP_wlr', 'TB_wlr', 'Maxent_3v', 'Maxent_brn', and 'Ensemble'.}
+  \item{Matrix of classified HSIs (8 binary columns) and the final ensemble prediction (1 integer column with range 0-8). Columns are labeled 'BC1', 'TBC1', 'TB1', 'SG_wlr', 'TP_wlr', 'TB_wlr', 'Maxent_3v', 'Maxent_brn', and 'Ensemble'.}
 }
 \references{
 Latif, Q. S., V. A. Saab, J. G. Dudley, and J. P. Hollenbeck. 2013. Ensemble modeling to predict habitat suitability for a large-scale disturbance specialist. Ecology and Evolution 3:4348-4364.
