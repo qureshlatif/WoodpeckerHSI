@@ -1,4 +1,4 @@
-plotNestDens <- function(dat.plot, dat.class, sampleHSIs, thresholds, binPntSize = 2, classPntSize = 5,
+plotDens <- function(dat.plot, dat.class, sampleHSIs, thresholds, binPntSize = 2, classPntSize = 5,
                          axisLabSize = 20, tickLabSize = 15, classLabSize = 5, lab.params,
                          BS = F, ylabel = "Observed density (nests per 100 ha)") {
   theme_set(theme_bw())

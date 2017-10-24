@@ -1,5 +1,5 @@
-\name{plotNestDens}
-\alias{plotNestDens}
+\name{plotDens}
+\alias{plotDens}
 \title{
   Plot sample density along HSI gradient
 }
@@ -7,7 +7,7 @@
   Generates plot of observed (nest) density in moving window bins and suitability classes along habitat suitability index (HSI) gradient.
 }
 \usage{
-  plotNestDens(dat.plot, dat.class, nests, thresholds, binPntSize = 2, classPntSize = 5,
+  plotDens(dat.plot, dat.class, nests, thresholds, binPntSize = 2, classPntSize = 5,
                          axisLabSize = 20, tickLabSize = 15, classLabSize = 5, lab.params, Dens.adj = T,
                          BS = F, ylabel = "Observed density (nests per 100 ha)")
 }
