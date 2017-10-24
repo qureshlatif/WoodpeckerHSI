@@ -1,8 +1,8 @@
 Package: WoodpeckerHSI
 Type: Package
 Title: Woodpecker habitat suitability models
-Version: 1.02
-Date: 2017-09-07
+Version: 1.03
+Date: 2017-10-24
 Author: Quresh S. Latif
 Maintainer: Quresh Latif <qureshlatif@yahoo.com>
 Description: Contains datasets and functions for developing, applying, and evaluating habitat suitability models following methods used for disturbance-associated woodpeckers.
