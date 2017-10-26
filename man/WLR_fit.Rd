@@ -4,7 +4,7 @@
 Fit weighted logistic regression model to use-nonuse and habitat data.
 }
 \description{
-Fits weighted logistic regression to binary data where 1 = habitat use observation and 0 = non-use observation. Weights are set so that the sum of weights for 0s will equal the number of 1s, and sample size will be twice the number of 1s. This type of model was used to develop habitat suitability models using nest location data for disturbance-associated woodpeckers (Russell et al. Latif et al. 2016).
+Fits weighted logistic regression to binary data where 1 = habitat use observation and 0 = non-use observation. Weights are set so that the sum of weights for 0s will equal the number of 1s, and sample size will be twice the number of 1s. This type of model was used to develop habitat suitability models using nest location data for disturbance-associated woodpeckers (Russell et al. 2007, Latif et al. 2016).
 }
 \usage{
 WLR_fit(dat, formula, Obs = "Nest")
