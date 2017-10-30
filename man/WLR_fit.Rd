@@ -51,6 +51,7 @@ function (dat, formula, Obs = "Nest")
     return(mod)
   }
 }
+\keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{glm}
 \keyword{woodpecker}
 \keyword{forest disturbance}
