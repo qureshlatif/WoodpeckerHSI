@@ -22,8 +22,8 @@ Character vector listing column names in 'data' containing variables of interest
 Variance inflation factors (VIF = 1/[1 - R-squared]; Neter et al. 1996) and correlation matrix contains Pearson's coefficients. These can be used to assess the presence of multicollinearity for any multivariate linear modeling, after which variable combinations associated with multicollinearity can be dropped from consideration.
 }
 \value{
- \item{VIF} {Numeric vector (length = length(vars)) of variance inflation factors.}
- \item{cmat} {Matrix of Pearson's correlation coefficients (dim = c(length(vars), length(vars))).}
+ \item{VIF}{Numeric vector (length = length(vars)) of variance inflation factors.}
+ \item{cmat}{Matrix of Pearson's correlation coefficients (dim = c(length(vars), length(vars))).}
 }
 \references{
 Neter, J., M. H. Kutner, C. J. Nachtsheim, and W. Wasserman. 1996. Applied linear statistical models. Times Mirror Higher Education Group, Inc.
