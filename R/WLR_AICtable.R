@@ -1,5 +1,5 @@
 WLR_AICtable <- function(data, mods, Obs = "Nest", AICc = T) {
-  ifelse(AICc, IC <- "AICc", IC = "AIC")
+  ifelse(AICc, IC <- "AICc", IC <- "AIC")
   out <- data.frame()
   n <- sum(data[, Obs] == 1)
   mod <- WLR_fit(data, Nest~NULL, Obs = Obs) # Intercept-only model
