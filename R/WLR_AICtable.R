@@ -16,6 +16,7 @@ WLR_AICtable <- function(data, mods, Obs = "Nest", AICc = T) {
     mod <- WLR_fit(data, as.formula(paste("Nest~", mods[[j]], sep="")), Obs = Obs) 
     K <- length(coef(mod))
     ifelse(AICc == T, ic <- mod$deviance+2*K*(n/(n-K-1)), ic <- mod$deviance+2*K)
+    out <- rbind(out, c("", NA, NA))
     out$Model[j + 1] <- mods[[j]]
     out[j + 1, 2] <- ic
     out$K <- length(coef(mod))
