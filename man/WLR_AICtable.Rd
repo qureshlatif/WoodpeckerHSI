@@ -67,6 +67,8 @@ function(data, mods, Obs = "Nest", AICc = T) {
     out[j + 1, 2] <- ic
     out$K <- length(coef(mod))
   }
+  out[, IC] <- as.numeric(out[, IC])
+  out$K <- as.numeric(out$K)
   out <- out[order(out[, IC]), ]
   out$dAIC <- out[, IC] - out[1, IC]
   wt.no <- exp(-0.5*out$dAIC)
