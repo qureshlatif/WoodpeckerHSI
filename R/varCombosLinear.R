@@ -5,11 +5,10 @@ varCombosLinear <- function(V, K.max = length(vars), exclude = NULL) {
     for (a in 1:nrow(index)) {
       v <- V[index[a, ]]
       m <- paste(v, collapse="+")
-      if(!is.null(exclude)) {
-        check <- 0
+      check <- 0
+      if(!is.null(exclude))
         for(x in 1:length(exclude)) if(sum(exclude[[x]] %in% v)>1) check <- 1
-        if(check == 0) mods[[(length(mods)+1)]] <- m
-      }
+      if(check == 0) mods[[(length(mods)+1)]] <- m
     }
   }
   return(mods)
