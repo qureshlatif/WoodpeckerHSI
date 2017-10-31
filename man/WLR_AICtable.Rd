@@ -7,7 +7,7 @@ Generate AIC table for candidate weighted logistic regression (WLR) models.
 With a list of candidate WLR models, AIC table is generated (see WLR_fit; Russell et al. 2007, Latif et al. 2016).
 }
 \usage{
-WLR_AICtable(data, mods, Obs = "Nest", AICc = T)
+WLR_AICtable(data, mods, Obs = "Nest", AICc = T, w = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -22,6 +22,9 @@ The name of the column in 'data' indicating use-nonuse, i.e., y in the formula y
 }
   \item{AICc}{
 If TRUE (default), the small-sample corrected version of AIC (AICc) is calculated. Otherwise, AIC is calculated.
+}
+  \item{w}{
+Optional argument passed to WLR_fit.
 }
 }
 \details{
