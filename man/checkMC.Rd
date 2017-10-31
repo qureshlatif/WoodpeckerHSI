@@ -37,7 +37,7 @@ Quresh S. Latif, Rocky Mountain Research Station, U.S. Forest Service
 function(data, vars) {
   VIF <- numeric(length=length(vars))
   for(i in 1:length(vars)) {
-    x <- paste(vars, collapse="+")
+    x <- paste(vars[-i], collapse="+")
     m <- lm(as.formula(paste(vars[i], "~", x, sep="")), data = data)
     Rsqr <- summary(m)$r.squared
     VIF[i] <- 1 / (1 - Rsqr) #Variance Inflation Factor
