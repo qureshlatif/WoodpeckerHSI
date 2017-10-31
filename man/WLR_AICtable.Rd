@@ -48,7 +48,7 @@ function(data, mods, Obs = "Nest", AICc = T) {
   ifelse(AICc, IC <- "AICc", IC <- "AIC")
   out <- data.frame()
   n <- sum(data[, Obs] == 1)
-  mod <- WLR_fit(data, Nest~NULL, Obs = Obs) # Intercept-only model
+  mod <- WLR_fit(data, "NULL", Obs = Obs) # Intercept-only model
   K <- length(coef(mod))
   ifelse(AICc == T, ic <- mod$deviance+2*K*(n/(n-K-1)), ic <- mod$deviance+2*K)
   add <- c("Null", ic, 1)
@@ -59,7 +59,7 @@ function(data, mods, Obs = "Nest", AICc = T) {
   out$K<-as.numeric(out$K)
   
   for (j in 1:length(mods)) {
-    mod <- WLR_fit(data, as.formula(paste("Nest~", mods[[j]], sep="")), Obs = Obs) 
+    mod <- WLR_fit(data, mods[[j]], Obs = Obs) 
     K <- length(coef(mod))
     ifelse(AICc == T, ic <- mod$deviance+2*K*(n/(n-K-1)), ic <- mod$deviance+2*K)
     out <- rbind(out, c("", NA, NA))

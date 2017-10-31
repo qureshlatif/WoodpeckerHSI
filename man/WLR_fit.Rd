@@ -14,8 +14,8 @@ WLR_fit(dat, formula, Obs = "Nest")
   \item{dat}{
 Data frame with one column indicating which observations are use (1) versus non-use (0), and additional columns containing habitat covariates to be used as predictors in the model.
 }
-  \item{formula}{
-A formula object (see ?formula) indicating the model to be fitted.
+  \item{mod}{
+A character string containing the right hand side of the desired model, i.e., of the form "x1+x2+...+xK", where 'xK' = the last covariate in the model.
 }
   \item{Obs}{
 The name of the column in 'dat' indicating use-nonuse, i.e., y in the formula y~x.
@@ -41,15 +41,14 @@ glm, predict.glm
 }
 \examples{
 ## The function is currently defined as
-function (dat, formula, Obs = "Nest") 
-{
-    w <- rep(1, nrow(dat))
-    w[which(dat[, Obs] == 0)] <- sum(dat[, Obs] == 1)/sum(dat[, 
-        Obs] == 0)
-    dat$w <- w
-    mod <- glm(formula, family = binomial, weights = w, data = dat)
-    return(mod)
-  }
+function(dat, mod, Obs = "Nest") {
+  form <- paste0(Obs, "~", mod)
+  w <- rep(1, nrow(dat))
+  w[which(dat[, Obs] == 0)] <- sum(dat[, Obs] == 1) / sum(dat[, Obs] == 0)
+  dat$w <- w
+  mod <- glm(form, family = binomial, weights = w, data = dat)
+  return(mod)
+}
 }
 \keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{glm}
