@@ -1,9 +1,9 @@
-varCombosLinear <- function(vars, K.max = length(vars), exclude = NULL) {
+varCombosLinear <- function(V, K.max = length(vars), exclude = NULL) {
   mods <- list()
   for(i in 1:K.max) {
-    index <- combinations(length(vars),i)
+    index <- combinations(length(V),i)
     for (a in 1:nrow(index)) {
-      v <- vars[index[a, ]]
+      v <- V[index[a, ]]
       m <- paste(v, collapse="+")
       if(!is.null(exclude)) {
         check <- 0

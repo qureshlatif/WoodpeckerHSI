@@ -11,7 +11,7 @@ varCombosLinear(vars, K.max = length(vars), exclude = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{vars}{
+  \item{V}{
 Character vector naming all variables from which to compile candidate combinations.
 }
   \item{K.max}{
