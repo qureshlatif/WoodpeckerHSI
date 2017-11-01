@@ -48,6 +48,7 @@ function(sampleHSI, bgroundHSI, bins, area) {
     tab$Density[b] <- no.nests / bin.area
   }
   }
+  }
 \keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{HSI}
 \keyword{Resource Selection Function}
