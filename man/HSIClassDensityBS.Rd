@@ -7,7 +7,7 @@
   Applies bootstrapping to calculate 95 percent CIs to densities in habitat suitability index (HSI) categories. Used in the Woodpecker HSI package to quantify uncertainty for observed nest densities for plotting and mapping.
 }
 \usage{
-  calcBins(dat.class, dat.nest, dat.grid, transects, thresholds, area, R, TID = "TID", HSI = "HSI")
+  HSIClassDensityBS(dat.class, dat.nest, dat.grid, transects, thresholds, area, R, TID = "TID", HSI = "HSI")
 }
 \arguments{
   \item{dat.class}{Data frame with one row for each suitability class. Ideally, use output from 'calcClassDensities' function.}
@@ -41,9 +41,9 @@
     ind <- numeric()
     for(t in 1:length(tr)) ind <- c(ind, which((dat.background[, UnitID] \%>\% as.matrix \%>\% as.character) == tr[t]))
     g <- dat.background[ind, HSI] \%>\% as.matrix \%>\% as.numeric
-    dc <- HSIClassDensities(n, g, thresholds, area)
+    dc <- calcClassDensities(n, g, thresholds, area)
     dens.mat[, r] <- dc$Density
-    perc.mat[, r] <- (((dc$Density) / sum(dc$Density))*100) \%>\% round
+    perc.mat[, r] <- (((dc$Density) / sum(dc$Density))*100) %>% round
   }
   dat.class <- cbind(dat.class,
                      Dens95lo =
