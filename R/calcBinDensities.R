@@ -1,13 +1,11 @@
 calcBinDensities <- function(sampleHSI, bgroundHSI, bins, area) {
-  # bins = output from calcBins; bgDist and modDist go together - provide both or neither 
   cell.area <- area/length(bgroundHSI)
   HSI.sort <- sort(bgroundHSI)
   
   tab <- data.frame(HSI.md = numeric(length = length(bins$st)))
   tab$HSI.end <- tab$HSI.st <- 0
   tab$Density <- NA
-  if(!is.null(bgDist)) tab$Density_adj <- tab$Distance <- 0
-  
+
   for(b in 1:length(bins$st)) {
     tab$HSI.md[b] <-
       mean(HSI.sort[which(bins$unitID %in% bins$st[b]:bins$end[b])])
