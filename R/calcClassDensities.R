@@ -6,17 +6,11 @@ calcClassDensities <- function(sampleHSI, bgroundHSI, thresholds, area) {
                           HSI.end = c(thresholds[1], thresholds[2], 1))
   dat.class$no_nests <- NA
   dat.class$Density <- NA
-  if(!is.null(bgDist)) dat.class$Density_adj <- dat.class$Distance <- 0
   for(r in 1:nrow(dat.class)) {
     dat.class$no_nests[r] <- sum(sampleHSI >= dat.class$HSI.st[r] & sampleHSI < dat.class$HSI.end[r])
     dat.class$Density[r] <-
       sum(sampleHSI >= dat.class$HSI.st[r] & sampleHSI < dat.class$HSI.end[r]) /
       (sum(bgroundHSI >= dat.class$HSI.st[r] & bgroundHSI < dat.class$HSI.end[r]) * (area / length(bgroundHSI)))
-  }
-  if(!is.null(bgDist)) for(r in 1:nrow(dat.class)) {
-    dat.class$Distance[r] <- mean(bgDist[which(bgroundHSI >= dat.class$HSI.st[r] & bgroundHSI < dat.class$HSI.end[r])])
-    p <- pdist(modDist, dat.class$Distance[r])
-    dat.class$Density_adj[r] <- dat.class$Density[r] / p
   }
   return(dat.class)
 }
