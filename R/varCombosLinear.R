@@ -1,5 +1,6 @@
-varCombosLinear <- function(V, K.max = length(vars), exclude = NULL) {
+varCombosLinear <- function(V, K.max = length(V), exclude = NULL) {
   mods <- list()
+  if(K.max > length(V)) K.max <- length(V)
   for(i in 1:K.max) {
     index <- combinations(length(V),i)
     for (a in 1:nrow(index)) {

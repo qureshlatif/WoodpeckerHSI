@@ -33,16 +33,17 @@ Quresh S. Latif, Rocky Mountain Research Station, U.S. Forest Service
 
 \examples{
 ## The function is currently defined as
-function(vars, K.max = length(vars), exclude = NULL) {
+function(V, K.max = length(V), exclude = NULL) {
   mods <- list()
+  if(K.max > length(V)) K.max <- length(V)
   for(i in 1:K.max) {
-    index <- combinations(length(vars),i)
+    index <- combinations(length(V),i)
     for (a in 1:nrow(index)) {
-      v <- vars[index[a, ]]
+      v <- V[index[a, ]]
       m <- paste(v, collapse="+")
       check <- 0
       if(!is.null(exclude))
-        for(x in 1:length(exclude)) if(sum(exclude[[x]] \%in\% v)>1) check <- 1
+        for(x in 1:length(exclude)) if(sum(exclude[[x]] %in% v)>1) check <- 1
       if(check == 0) mods[[(length(mods)+1)]] <- m
     }
   }
