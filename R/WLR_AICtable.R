@@ -10,7 +10,7 @@ WLR_AICtable <- function(data, mods, Obs = "Nest", AICc = T, w = NULL) {
   names(out) <- c("Model", IC, "K")
   out$Model <- as.character(out$Model)
   out[, IC] <- as.numeric(out[, IC])
-  out$K<-as.numeric(out$K)
+  out$K <- as.numeric(out$K)
   
   for (j in 1:length(mods)) {
     mod <- WLR_fit(data, mods[[j]], Obs = Obs, w = w) 
@@ -19,7 +19,7 @@ WLR_AICtable <- function(data, mods, Obs = "Nest", AICc = T, w = NULL) {
     out <- rbind(out, c("", NA, NA))
     out$Model[j + 1] <- mods[[j]]
     out[j + 1, 2] <- ic
-    out$K <- length(coef(mod))
+    out$K[j + 1] <- length(coef(mod))
   }
   out[, IC] <- as.numeric(out[, IC])
   out$K <- as.numeric(out$K)
