@@ -3,6 +3,7 @@ HSIClassDensityBS <- function(dat.class, dat.sample, dat.background, units, thre
   dat.class <- dat.class %>% tbl_df
   dat.sample <- dat.sample %>% tbl_df
   dat.background <- dat.background %>% tbl_df
+  area.per.bkg <- area / nrow(dat.background)
   for(r in 1:R) {
     tr <- units[sample(length(units), length(units), replace = T)]
     ind <- numeric()
@@ -11,7 +12,8 @@ HSIClassDensityBS <- function(dat.class, dat.sample, dat.background, units, thre
     ind <- numeric()
     for(t in 1:length(tr)) ind <- c(ind, which((dat.background[, UnitID] %>% as.matrix %>% as.character) == tr[t]))
     g <- dat.background[ind, HSI] %>% as.matrix %>% as.numeric
-    dc <- calcClassDensities(n, g, thresholds, area)
+    a <- area.per.bkg * length(g)
+    dc <- calcClassDensities(n, g, thresholds, a)
     dens.mat[, r] <- dc$Density
     perc.mat[, r] <- (((dc$Density) / sum(dc$Density))*100) %>% round
   }
