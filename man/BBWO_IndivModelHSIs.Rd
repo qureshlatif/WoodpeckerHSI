@@ -27,14 +27,6 @@ Quresh S. Latif, Rocky Mountain Research Station, U.S. Forest Service
 \seealso{
 Mahal_HSI, BBWO_MxWLRHSIs, BBWO_Mxnt3v, BBWO_Mxntbrn
 }
-\examples{
-## The function is currently defined as
-function(lndscp, BBWO_nest_samples = BBWO_nest_samples) {
-  Data <- BBWO_MahalHSIs(lndscp)
-  Data <- cbind(Data, BBWO_MxWLRHSIs(Data[, "COSASP"], Data[, "DNBR"], Data[, "LOCCC40"], Data[, "LANDCC40"]))
-  return(Data)
-}
-}
 \keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{Black-backed Woodpecker}
 \keyword{habitat suitability}

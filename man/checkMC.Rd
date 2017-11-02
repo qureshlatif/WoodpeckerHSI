@@ -32,22 +32,6 @@ Neter, J., M. H. Kutner, C. J. Nachtsheim, and W. Wasserman. 1996. Applied linea
 Quresh S. Latif, Rocky Mountain Research Station, U.S. Forest Service
 }
 
-\examples{
-## The function is currently defined as
-function(data, vars) {
-  VIF <- numeric(length=length(vars))
-  for(i in 1:length(vars)) {
-    x <- paste(vars[-i], collapse="+")
-    m <- lm(as.formula(paste(vars[i], "~", x, sep="")), data = data)
-    Rsqr <- summary(m)$r.squared
-    VIF[i] <- 1 / (1 - Rsqr) #Variance Inflation Factor
-  }
-  names(VIF) <- vars
-  cmat <- cor(data[, vars])
-  out <- list(VIF = VIF, cmat = cmat)
-  return(out)
-}
-}
 \keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{glm}
 \keyword{regression analysis}

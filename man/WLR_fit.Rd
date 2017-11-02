@@ -42,17 +42,6 @@ Quresh S. Latif, Rocky Mountain Research Station, U.S. Forest Service
 \seealso{
 glm, predict.glm
 }
-\examples{
-## The function is currently defined as
-function(dat, mod, Obs = "Nest") {
-  form <- paste0(Obs, "~", mod)
-  w <- rep(1, nrow(dat))
-  w[which(dat[, Obs] == 0)] <- sum(dat[, Obs] == 1) / sum(dat[, Obs] == 0)
-  dat$w <- w
-  mod <- glm(form, family = binomial, weights = w, data = dat)
-  return(mod)
-}
-}
 \keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{glm}
 \keyword{woodpecker}

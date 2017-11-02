@@ -31,25 +31,6 @@ List with elements are strings representing candidate covariate combinations of 
 Quresh S. Latif, Rocky Mountain Research Station, U.S. Forest Service
 }
 
-\examples{
-## The function is currently defined as
-function(V, K.max = length(V), exclude = NULL) {
-  mods <- list()
-  if(K.max > length(V)) K.max <- length(V)
-  for(i in 1:K.max) {
-    index <- combinations(length(V),i)
-    for (a in 1:nrow(index)) {
-      v <- V[index[a, ]]
-      m <- paste(v, collapse="+")
-      check <- 0
-      if(!is.null(exclude))
-        for(x in 1:length(exclude)) if(sum(exclude[[x]] %in% v)>1) check <- 1
-      if(check == 0) mods[[(length(mods)+1)]] <- m
-    }
-  }
-  return(mods)
-}
-}
 \keyword{models}% use one of  RShowDoc("KEYWORDS")
 \keyword{glm}
 \keyword{regression analysis}
