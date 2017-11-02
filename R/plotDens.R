@@ -2,10 +2,10 @@ plotDens <- function(dat.plot, dat.class, sampleHSIs, thresholds, binPntSize = 2
                          axisLabSize = 20, tickLabSize = 15, classLabSize = 5, lab.params,
                          BS = F, ylabel = "Observed density (nests per 100 ha)") {
   theme_set(theme_bw())
-  plt <- ggplot(dat.plot, aes(HSI.md, Density_adj)) +
+  plt <- ggplot(dat.plot, aes(HSI.md, Density)) +
     geom_point(size = binPntSize, shape = 1) +
-    geom_point(data = dat.class, aes(x = HSI.md, y = Density_adj), size = classPntSize, shape = 16) +
-    geom_rug(data = sampleHSIs, aes(x = HSI_WHWO, y = NULL), colour = "black", alpha = 0.3, size = 1) +
+    geom_point(data = dat.class, aes(x = HSI.md, y = Density), size = classPntSize, shape = 16) +
+    geom_rug(data = data.frame(HSI = sampleHSIs), aes(x = HSI, y = NULL), colour = "black", alpha = 0.3, size = 1) +
     geom_vline(xintercept = thresholds[1], linetype = "dashed") +
     geom_vline(xintercept = thresholds[2], linetype = "dashed") +
     ylab(ylabel) + xlab("Habitat Suitability Index (HSI)") +
