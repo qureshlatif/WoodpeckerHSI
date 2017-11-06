@@ -5,7 +5,7 @@ plotDens <- function(dat.plot, dat.class, sampleHSIs, thresholds, binPntSize = 2
   theme_set(theme_bw())
   plt <- ggplot(dat.plot, aes(HSI.md, Density)) +
     geom_point(size = binPntSize, shape = 1) +
-    geom_point(data = dat.class, aes(x = HSI.md, y = Density), size = classPntSize, shape = 16) +
+    geom_point(data = dat.class, aes(x = HSI.md, y = Density), size = classPntSize, shape = 1) +
     geom_rug(data = data.frame(HSI = sampleHSIs), aes(x = HSI, y = NULL), colour = "black", alpha = 0.3, size = 1) +
     geom_vline(xintercept = thresholds[1], linetype = "dashed") +
     geom_vline(xintercept = thresholds[2], linetype = "dashed") +
