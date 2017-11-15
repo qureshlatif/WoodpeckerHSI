@@ -7,16 +7,16 @@ HSIClassDensityBS <- function(dat.class, dat.sample, dat.background, units, thre
   list.sample <- list.bkg <- list()
   for(t in 1:length(units)) {
     ind <- which(dat.sample[, UnitID] == units[t])
-    list.sample <- c(list.sample, dat.sample[ind, ])
+    list.sample[[length(list.sample) + 1]] <- dat.sample[ind, ]
     ind <- which(dat.background[, UnitID] == units[t])
-    list.bkg <- c(list.bkg, dat.background[ind, ])
+    list.bkg[[length(list.bkg) + 1]] <- dat.background[ind, ]
   }
   names(list.sample) <- names(list.bkg) <- units
   for(r in 1:R) {
     tr <- units[sample(length(units), length(units), replace = T)]
-    n <- do.call("rbind", list.sample[[tr]])
+    n <- do.call("rbind", list.sample[tr])
     n <- n[, HSI] %>% as.matrix %>% as.numeric
-    g <- do.call("rbind", list.bkg[[tr]])
+    g <- do.call("rbind", list.bkg[tr])
     g <- g[, HSI] %>% as.matrix %>% as.numeric
     a <- area.per.bkg * length(g)
     dc <- calcClassDensities(n, g, thresholds, a)
