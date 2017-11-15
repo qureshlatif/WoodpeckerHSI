@@ -4,14 +4,20 @@ HSIClassDensityBS <- function(dat.class, dat.sample, dat.background, units, thre
   dat.sample <- dat.sample %>% tbl_df
   dat.background <- dat.background %>% tbl_df
   area.per.bkg <- area / nrow(dat.background)
+  list.sample <- list.grid <- list()
+  for(t in 1:length(units)) {
+    ind <- which(dat.sample[, UnitID] == units[t])
+    list.sample <- c(list.sample, dat.sample[ind, ])
+    ind <- which(dat.grid[, UnitID] == units[t])
+    list.grid <- c(list.grid, dat.grid[ind, ])
+  }
+  names(list.sample) <- names(list.grid) <- units
   for(r in 1:R) {
     tr <- units[sample(length(units), length(units), replace = T)]
-    ind <- numeric()
-    for(t in 1:length(tr)) ind <- c(ind, which((dat.sample[, UnitID] %>% as.matrix %>% as.character) == tr[t]))
-    n <- dat.sample[ind, HSI] %>% as.matrix %>% as.numeric
-    ind <- numeric()
-    for(t in 1:length(tr)) ind <- c(ind, which((dat.background[, UnitID] %>% as.matrix %>% as.character) == tr[t]))
-    g <- dat.background[ind, HSI] %>% as.matrix %>% as.numeric
+    n <- do.call("rbind", list.sample[[tr]])
+    n <- n[, HSI] %>% as.matrix %>% as.numeric
+    g <- do.call("rbind", list.grid[[tr]])
+    g <- g[, HSI] %>% as.matrix %>% as.numeric
     a <- area.per.bkg * length(g)
     dc <- calcClassDensities(n, g, thresholds, a)
     dens.mat[, r] <- dc$Density
