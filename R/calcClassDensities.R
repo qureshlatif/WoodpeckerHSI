@@ -1,5 +1,4 @@
 calcClassDensities <- function(sampleHSI, bgroundHSI, thresholds, area) {
-  if(nrow(dat.class) != (length(thresholds) - 1)) stop("Incorrect number of thresholds provided for the number of suitability classes.")
   HSI.md <- HSI.st <- HSI.end <- numeric(length = (length(thresholds) + 1))
   dat.class <- data.frame(HSI.md, HSI.st, HSI.end)
   for(r in 1:length(HSI.md)) {
