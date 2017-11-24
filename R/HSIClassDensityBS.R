@@ -1,5 +1,5 @@
 HSIClassDensityBS <- function(dat.class, dat.sample, dat.background, units, thresholds, area, R, UnitID = "TID", HSI = "HSI") {
-  if(nrow(dat.class) != (length(thresholds) - 1)) stop("Incorrect number of thresholds provided for the number of suitability classes.")
+  if(nrow(dat.class) != (length(thresholds) + 1)) stop("Incorrect number of thresholds provided for the number of suitability classes.")
   dens.mat <- perc.mat <- matrix(NA, nrow = nrow(dat.class), ncol = R)
   dat.class <- dat.class %>% tbl_df
   dat.sample <- dat.sample %>% tbl_df

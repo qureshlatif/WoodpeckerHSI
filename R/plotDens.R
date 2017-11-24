@@ -3,7 +3,7 @@ plotDens <- function(dat.plot, dat.class, sampleHSIs, thresholds, binPntSize = 2
                      BS = F, ylabel = "Observed density (nests per 100 ha)",
                      xlabel = "Habitat Suitability Index (HSI)") {
   theme_set(theme_bw())
-  if(nrow(dat.class) != (length(thresholds) - 1)) stop("Incorrect number of thresholds provided for the number of suitability classes.")
+  if(nrow(dat.class) != (length(thresholds) + 1)) stop("Incorrect number of thresholds provided for the number of suitability classes.")
   plt <- ggplot(dat.plot, aes(HSI.md, Density)) +
     geom_point(size = binPntSize, shape = 16) +
     geom_point(data = dat.class, aes(x = HSI.md, y = Density), size = classPntSize, shape = 1, stroke = 1.5) +
