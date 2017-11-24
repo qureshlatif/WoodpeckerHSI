@@ -27,5 +27,7 @@ calcClassDensities <- function(sampleHSI, bgroundHSI, thresholds, area) {
       sum(sampleHSI >= dat.class$HSI.st[r] & sampleHSI < dat.class$HSI.end[r]) /
       (sum(bgroundHSI >= dat.class$HSI.st[r] & bgroundHSI < dat.class$HSI.end[r]) * (area / length(bgroundHSI)))
   }
+  dat.class$Perc <- (((dat.class$Density) / sum(dat.class$Density)) *
+                       100) %>% round
   return(dat.class)
 }

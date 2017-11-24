@@ -22,7 +22,7 @@ HSIClassDensityBS <- function(dat.class, dat.sample, dat.background, units, thre
     a <- area.per.bkg * length(g)
     dc <- calcClassDensities(n, g, thresholds, a)
     dens.mat[, r] <- dc$Density
-    perc.mat[, r] <- (((dc$Density) / sum(dc$Density))*100) %>% round
+    perc.mat[, r] <- dc$Perc
   }
   dat.class <- cbind(dat.class,
                      Dens95lo =
