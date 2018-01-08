@@ -7,11 +7,12 @@ Applies all habitat suitability models representing components of an ensemble fo
 Wrapper function that generates HSIs for all models representing components of an ensemble for nesting Black-backed Woodpecker (BBWO; Latif et al. 2013) in burned dry conifer forest of the Inland Northwest and central Rocky Mountains.
 }
 \usage{
-BBWO_IndivModelHSIs(lndscp, BBWO_nest_samples = BBWO_nest_samples)
+BBWO_IndivModelHSIs(lndscp, BBWO_nest_samples = BBWO_nest_samples, RAVG = F)
 }
 \arguments{
   \item{lndscp}{matrix (or data frame coercible to matrix) containing columns representing variables needed to apply published models and rows representing pixels in a burned forest landscape.}
   \item{BBWO_nest_samples}{List whose elements are resampled BBWO nest location datasets used as reference data for calculating Mahalanobis HSIs. The default is the object 'BBWO_nest_samples', which is included in the 'WoodpeckerHSIs' package.}
+  \item{RAVG}{If false (default), nest samples for calculating Mahalanobis HSIs are those defined by the 'BBWO_nest_samples' argument. If true, the dataset 'BBWO_nest_samples_ravg' is used (automatically loaded with WoodpeckerHSI package).}
 }
 \details{This wrapper function applies two sub-functions that together apply all 8 component models needed to generate ensemble predictions for nesting Black-backed Woodpeckers (Latif et al. 2013). Four variables are necessary to apply this group of models, and columns in 'lndscp' containing these variables must be named "COSASP", "DNBR", "LOCCC40", and "LANDCC40". Descriptions of these variables are provided by Latif et al. (2013).}
 \value{
